@@ -2,19 +2,23 @@ import React from "react";
 import data from "../../data.json";
 import SingleCity from "../SingleCity/SingleCity";
 
-const SuggestionComponent = ({ value }) => {
+const SuggestionComponent = ({ value, handleCityClick }) => {
   const filteredData =
     value?.length > 0 &&
     data?.filter((d) => d?.city?.toLowerCase()?.includes(value?.toLowerCase()));
 
-  console.log(filteredData);
   return (
-    <div>
-      {filteredData?.length > 0 &&
-        filteredData?.map((data) => (
-          <SingleCity key={data?.code} data={data} />
+    filteredData?.length > 0 && (
+      <div className="border-1 bg-white mt-2 p-2">
+        {filteredData?.map((data) => (
+          <SingleCity
+            key={data?.code}
+            data={data}
+            handleCityClick={handleCityClick}
+          />
         ))}
-    </div>
+      </div>
+    )
   );
 };
 
