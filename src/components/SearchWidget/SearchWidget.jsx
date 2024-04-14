@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchComponent from "../SearchComponent/SearchComponent";
+import DatePickerComponent from "../DatePicker/DatePickerComponent";
 
 const SearchWidget = () => {
   const [from, setFrom] = useState("");
@@ -20,8 +21,8 @@ const SearchWidget = () => {
           </button>
         </div>
         <SearchComponent text={"To"} value={to} setValue={setTo} />
-        <SearchComponent text={"To"} />
-        <SearchComponent text={"To"} />
+        <DatePickerComponent />
+        <DatePickerComponent />
         <SearchComponent text={"To"} />
         <div>
           <button className="bg-green-500 p-4">scrach</button>
