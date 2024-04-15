@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SearchComponent from "../SearchComponent/SearchComponent";
 import DatePickerComponent from "../DatePicker/DatePickerComponent";
+import { MdOutlineSwapHorizontalCircle } from "react-icons/md";
+import WrapperComponent from "../WrapperComponent/WrapperComponent";
 
 const SearchWidget = () => {
   const [from, setFrom] = useState("");
@@ -12,21 +14,33 @@ const SearchWidget = () => {
   };
 
   return (
-    <div className=" flex lg:mt-24 md: mt-16">
-      <div className="flex w-5/6 gap-2 ">
-        <SearchComponent text={"From"} value={from} setValue={setFrom} />
-        <div>
-          <button className="bg-green-500 p-4" onClick={handleSwap}>
-            swap
-          </button>
+    <div>
+      <div className="flex flex-col md:flex-row gap-2 mt-8 md:mt-20">
+        <div className="flex gap-1 relative">
+          <WrapperComponent text={"From"}>
+            <SearchComponent value={from} setValue={setFrom} />
+          </WrapperComponent>
+          <div className="absolute left-[46%] top-3 bg-white z-10">
+            <button className="" onClick={handleSwap}>
+              <MdOutlineSwapHorizontalCircle className="text-4xl" />
+            </button>
+          </div>
+          <WrapperComponent text={"To"}>
+            <SearchComponent value={to} setValue={setTo} />
+          </WrapperComponent>
         </div>
-        <SearchComponent text={"To"} value={to} setValue={setTo} />
-        <DatePickerComponent />
-        <DatePickerComponent />
-        <SearchComponent text={"To"} />
-        <div>
-          <button className="bg-green-500 p-4">scrach</button>
+        <div className="flex gap-2">
+          <WrapperComponent text={"Depart"}>
+            <DatePickerComponent />
+          </WrapperComponent>
+          <WrapperComponent text={"Return"}>
+            <DatePickerComponent />
+          </WrapperComponent>
+          <SearchComponent text={"To"} />
         </div>
+        {/* <div className="flex">
+          <button className="bg-green-500 p-4">Search</button>
+        </div> */}
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ const SuggestionComponent = ({ value, handleCityClick }) => {
 
   return (
     filteredData?.length > 0 && (
-      <div className="border-1 bg-white mt-2 p-2">
+      <div className="absolute border-1 bg-white mt-2 p-2 max-h-80 overflow-auto">
         {filteredData?.map((data) => (
           <SingleCity
             key={data?.code}

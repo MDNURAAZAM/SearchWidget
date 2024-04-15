@@ -8,10 +8,12 @@ const DatePickerComponent = () => {
   return (
     <div>
       <DatePicker
-        className="p-4"
+        className="p-6 font-bold"
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         monthsShown={2}
+        placeholderText="Add Date"
+        
       />
     </div>
   );
