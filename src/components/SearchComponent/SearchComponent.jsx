@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SuggestionComponent from "../SuggestionComponent/SuggestionComponent";
 
-const SearchComponent = ({ value, setValue }) => {
+const SearchComponent = ({ value, setValue, additionalStyles='' }) => {
   const [show, setShow] = useState(false);
   const handleChange = (e) => {
     const inputValue = e.target.value;
@@ -15,9 +15,9 @@ const SearchComponent = ({ value, setValue }) => {
     setValue(`${data?.city} (${data?.code})`);
   };
   return (
-    <div className="relative">
+    <div className="">
       <input
-        className="p-6 font-bold"
+        className={`p-6 font-bold ${additionalStyles}`}
         placeholder='Country, city or airport'
         value={value}
         onChange={handleChange}
